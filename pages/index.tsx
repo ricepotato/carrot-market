@@ -5,10 +5,14 @@ const Home: NextPage = () => {
     <div className="bg-slate-400 py-20 px-10 flex flex-col space-y-5 min-h-screen">
       <div className="bg-white p-6 rounded-2xl shadow-xl">
         <span className="font-semibold text-xl">Select Item</span>
-        <div className="flex justify-between my-2">
-          <span className="text-gray-500">Gray Chair</span>
-          <span className="font-semibold">$19</span>
-        </div>
+        <ul>
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div key={i} className="flex justify-between my-2 odd:bg-blue-50">
+              <span className="text-gray-500">Gray Chair</span>
+              <span className="font-semibold">$19</span>
+            </div>
+          ))}
+        </ul>
         <div className="flex justify-between mt-2 pt-2 border-t-2 border-dashed">
           <span>Total</span>
           <span className="font-semibold">$10</span>
@@ -77,6 +81,44 @@ const Home: NextPage = () => {
             </button>
           </div>
         </div>
+      </div>
+      <div className="bg-white p-6 rounded-2xl shadow-xl">
+        <form className="space-y-2 p-5">
+          <div className="flex flex-col">
+            <input
+              type="text"
+              required
+              placeholder="Username"
+              className="border p-1 peer border-gray-400 rounded-sm"
+            ></input>
+            <span className="hidden peer-invalid:inline peer-invalid:text-red-500 font-semibold">
+              This input is invalid
+            </span>
+            <span className="hidden peer-valid:inline peer-valid:text-blue-500 font-semibold">
+              Awesome Username!
+            </span>
+          </div>
+          <div className="flex flex-col">
+            <input
+              type="email"
+              required
+              placeholder="Email"
+              className="border p-1 peer border-gray-400 rounded-sm"
+            ></input>
+            <span className="hidden peer-invalid:inline peer-invalid:text-red-500 font-semibold">
+              Email is invalid
+            </span>
+            <span className="hidden peer-valid:inline peer-valid:text-blue-500 font-semibold">
+              Awesome email!
+            </span>
+          </div>
+
+          <input
+            className="bg-blue-500 p-2 rounded-lg text-white font-semibold"
+            type="submit"
+            value="Login"
+          ></input>
+        </form>
       </div>
     </div>
   );
