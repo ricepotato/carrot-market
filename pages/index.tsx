@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-slate-400 py-20 px-10 flex flex-col space-y-5 min-h-screen">
+    <div className="bg-slate-400 py-20 px-10 grid gap-10 lg:grid-cols-2 xl:grid-cols-3 min-h-screen">
       <div className="bg-white p-6 rounded-2xl shadow-xl">
         <span className="font-semibold text-xl">Select Item</span>
         <ul>
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       </div>
 
       <div className="bg-white overflow-hidden rounded-2xl shadow-xl">
-        <div className="bg-blue-500 p-6 pb-14">
+        <div className="bg-blue-500 p-6 pb-14 xl:pb-48">
           <span className="text-white text-2xl">Profile</span>
         </div>
         <div className="rounded-3xl p-6 bg-white relative -top-5">
@@ -46,7 +46,8 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white p-10 rounded-2xl shadow-xl">
+
+      <div className="bg-white p-10 rounded-2xl shadow-xl lg:col-span-2 xl:col-span-1">
         <div className="flex mb-5 justify-between items-center">
           <span>✔</span>
           <div className="space-x-3">
@@ -82,6 +83,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+
       <div className="bg-white p-6 rounded-2xl shadow-xl">
         <form className="space-y-2 p-5">
           <div className="flex flex-col">
@@ -119,6 +121,28 @@ const Home: NextPage = () => {
             value="Login"
           ></input>
         </form>
+      </div>
+
+      <div className="bg-white p-6 rounded-2xl shadow-xl">
+        <details className="select-none open:text-white open:bg-indigo-400">
+          <summary className="select-none cursor-pointer">
+            What is my fav. food.
+          </summary>
+          <span className="selection:bg-indigo-500 selection:text-white">
+            김치
+          </span>
+        </details>
+        <ul className="list-decimal marker:text-teal-500">
+          <li>hi</li>
+          <li>hi</li>
+          <li>hi</li>
+        </ul>
+        <div>
+          <input
+            type="file"
+            className="file:cursor-pointer file:hover:text-purple-400 file:hover:border-purple-400 file:hover:border transition-colors file:border-0 file:px-5 file:text-white file:rounded-lg file:bg-purple-400"
+          ></input>
+        </div>
       </div>
     </div>
   );
