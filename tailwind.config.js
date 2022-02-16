@@ -7,5 +7,5 @@ module.exports = {
     extend: {},
   },
   darkMode: "class", // 컴퓨터 설정에 따름 'media', class 설정에 따름 'class'
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
