@@ -2,14 +2,16 @@ import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-slate-400 py-20 px-10 grid gap-10 lg:grid-cols-2 xl:grid-cols-3 min-h-screen">
-      <div className="bg-white p-6 rounded-2xl shadow-xl">
+    <div className="dark bg-slate-400 dark:bg-slate-800 py-20 px-10 grid gap-10 lg:grid-cols-2 xl:grid-cols-3 min-h-screen">
+      <div className="bg-white dark:bg-slate-700 dark:text-gray-100 p-6 rounded-2xl shadow-xl">
         <span className="font-semibold text-xl">Select Item</span>
         <ul>
           {[1, 2, 3, 4, 5].map((i) => (
             <div key={i} className="flex justify-between my-2 odd:bg-blue-50">
-              <span className="text-gray-500">Gray Chair</span>
-              <span className="font-semibold">$19</span>
+              <span className="text-gray-500 dark:text-gray-50">
+                Gray Chair
+              </span>
+              <span className="font-semibold dark:text-white">$19</span>
             </div>
           ))}
         </ul>
@@ -18,7 +20,7 @@ const Home: NextPage = () => {
           <span className="font-semibold">$10</span>
         </div>
         <div className="flex">
-          <button className="mt-5 bg-blue-500 text-white p-3 rounded-xl w-2/4 mx-auto hover:bg-teal-500 hover:text-black active:bg-yellow-500 focus:text-red-500">
+          <button className="mt-5 bg-blue-500 dark:bg-gray-700 dark:border-white dark:border text-white p-3 rounded-xl w-2/4 mx-auto hover:bg-teal-500 hover:text-black active:bg-yellow-500 focus:text-red-500">
             Checkout
           </button>
         </div>
