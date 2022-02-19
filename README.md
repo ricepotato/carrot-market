@@ -15,3 +15,7 @@ npm install -D tailwindcss postcss autoprefixer
 ```bash
 npx tailwindcss init -p
 ```
+
+## Icons
+
+https://heroicons.dev/
