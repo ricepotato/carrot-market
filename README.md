@@ -40,6 +40,18 @@ db push
 npx prisma db push
 ```
 
+prisma generate
+
+```bash
+npx prisma generate
+```
+
+run prisma studio
+
+```bash
+npx prisma studio
+```
+
 ## planet scale
 
 https://app.planetscale.com/
