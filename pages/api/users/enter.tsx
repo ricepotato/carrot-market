@@ -34,4 +34,4 @@ async function handler(
   return res.json({ ok: true, token: token.payload });
 }
 
-export default withHandler("POST", handler);
+export default withHandler({ method: "POST", handler, isPrivate: false });
