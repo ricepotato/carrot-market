@@ -29,8 +29,6 @@ async function handler(
       },
     },
   });
-  console.log(user);
-  console.log(token);
   return res.json({ ok: true, token: token.payload });
 }
 
