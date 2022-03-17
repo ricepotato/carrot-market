@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import withHandler from "@libs/server/withHandler";
 import client from "@libs/server/client";
 import { withApiSession } from "@libs/server/withSession";
-import { responseSymbol } from "next/dist/server/web/spec-compliant/fetch-event";
 
 export interface ResponseType {
   ok: boolean;
@@ -13,7 +12,10 @@ async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseType>
 ) {
-  const { id } = req.query;
+  const {
+    query: { id },
+    session: { user },
+  } = req;
 
   const product = await client.product.findUnique({
     where: { id: +id.toString() },
@@ -30,8 +32,15 @@ async function handler(
   const relatedProducts = await client.product.findMany({
     where: { OR: terms, AND: { id: { not: product?.id } } },
   });
-  console.log(relatedProducts);
-  res.json({ ok: true, product, relatedProducts });
+  const isLiked = Boolean(
+    await client.fav.findFirst({
+      where: {
+        productId: product?.id,
+        userId: user?.id,
+      },
+    })
+  );
+  res.json({ ok: true, product, isLiked, relatedProducts });
 }
 
 export default withApiSession(withHandler({ methods: ["GET"], handler }));
