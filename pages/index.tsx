@@ -7,14 +7,14 @@ import FloatingButton from "../components/floating-button";
 import Item from "../components/item";
 import Layout from "../components/layout";
 
-interface ProducsResponse {
+interface ProductsResponse {
   ok: boolean;
   products: Product[];
 }
 
 const Home: NextPage = () => {
   const { user, isLoading } = useUser();
-  const { data } = useSWR<ProducsResponse>("/api/products");
+  const { data } = useSWR<ProductsResponse>("/api/products");
   console.log(user);
   return (
     <Layout title="홈" hasTabBar>
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
             hearts={1}
           />
         ))}
-        <FloatingButton href="/producs/upload">
+        <FloatingButton href="/products/upload">
           <svg
             className="h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
